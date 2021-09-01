@@ -9,7 +9,7 @@ const router = express.Router({ mergeParams: true });
  * @desc    Register user
  * @body    {email, password}
  */
-router.post('./register', registerUser);
+router.post('/register', registerUser);
 
 //LOGIN ROUTE
 /**
@@ -17,6 +17,6 @@ router.post('./register', registerUser);
  * @desc    Login user
  * @body    {email, password}
  */
-router.post('./login', loginUser);
+router.post('/login', loginUser);
 
 export default router;

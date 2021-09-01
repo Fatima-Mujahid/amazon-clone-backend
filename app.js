@@ -16,12 +16,7 @@ app.use(
   })
 );
 
-mongoose.connect(process.env.CONNECTION_URL, {
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useFindAndModify: false,
-});
+mongoose.connect(process.env.CONNECTION_URL);
 
 passport.use(
   'local',

@@ -23,7 +23,7 @@ userSchema.pre('save', function (next) {
   next();
 });
 
-userSchema.statics.checkPasword = function (pass, hashedPass) {
+userSchema.statics.checkPassword = function (pass, hashedPass) {
   return bcrypt.compareSync(pass, hashedPass);
 };
 
