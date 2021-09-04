@@ -8,7 +8,6 @@ const registerUser = (req, res) => {
       res.status(200).json({
         message: 'User Created Successfully',
         success: true,
-        data: user,
       });
     })
     .catch((err) => {
@@ -22,11 +21,11 @@ const loginUser = (req, res, next) => {
       res.status(500).json({ message: info.message, success: false });
     } else {
       const token = jwt.sign(user.toObject(), process.env.JWT_SECRET_KEY);
-      const { password, ...newUser } = user.toObject();
+      const { password, ..._user } = user.toObject();
       res.status(200).json({
         message: 'Login Successful',
         success: true,
-        data: newUser,
+        data: _user,
         token,
       });
     }
