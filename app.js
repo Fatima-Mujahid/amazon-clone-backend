@@ -6,6 +6,7 @@ import passport from 'passport';
 import passportLocal from 'passport-local';
 import User from './models/user.js';
 import userRoutes from './routes/users.js';
+import productRoutes from './routes/product.js';
 
 dotenv.config({ path: '.env' });
 const app = express();
@@ -40,6 +41,7 @@ passport.use(
 );
 
 app.use('/user', userRoutes);
+app.use('/products', productRoutes);
 
 const PORT = process.env.PORT || 9000;
 const server = app.listen(PORT, () => {
