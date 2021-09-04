@@ -2,8 +2,8 @@ import passport from 'passport';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.js';
 
-const registerUser = async (req, res) => {
-  await User.create(req.body, (err, user) => {
+const registerUser = (req, res) => {
+  User.create(req.body, (err, user) => {
     if (err) {
       res.status(500).json({ message: err.message, success: false });
     } else {

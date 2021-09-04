@@ -6,7 +6,7 @@ import passport from 'passport';
 import passportLocal from 'passport-local';
 import User from './models/user.js';
 import userRoutes from './routes/users.js';
-import productRoutes from './routes/product.js';
+import productRoutes from './routes/products.js';
 
 dotenv.config({ path: '.env' });
 const app = express();

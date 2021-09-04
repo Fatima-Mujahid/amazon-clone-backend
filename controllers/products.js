@@ -1,7 +1,7 @@
 import Product from '../models/product.js';
 
-const getProducts = async (req, res) => {
-  await Product.find((err, products) => {
+const getProducts = (req, res) => {
+  Product.find((err, products) => {
     if (err) {
       res.status(404).json({ message: err.message, success: false });
     } else {
@@ -14,8 +14,8 @@ const getProducts = async (req, res) => {
   });
 };
 
-const createProduct = async (req, res) => {
-  await Product.create(req.body, (err, product) => {
+const createProduct = (req, res) => {
+  Product.create(req.body, (err, product) => {
     if (err) {
       res.status(404).json({ message: err.message, success: false });
     } else {
