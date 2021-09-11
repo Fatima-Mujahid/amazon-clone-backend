@@ -1,8 +1,8 @@
 import Order from '../models/order.js';
 
 const getOrders = (req, res) => {
-  Order.find()
-    .populate('user products')
+  Order.find({ user: req.user })
+    .populate('user products', '-password')
     .exec((err, orders) => {
       if (err) {
         res.status(404).json({ message: err.message, success: false });

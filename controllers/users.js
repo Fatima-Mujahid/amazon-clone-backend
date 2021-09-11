@@ -20,8 +20,8 @@ const loginUser = (req, res, next) => {
     if (err | !user) {
       res.status(500).json({ message: info.message, success: false });
     } else {
-      const token = jwt.sign(user.toObject(), process.env.JWT_SECRET_KEY);
       const { password, ..._user } = user.toObject();
+      const token = jwt.sign(_user, process.env.JWT_SECRET_KEY);
       res.status(200).json({
         message: 'Login Successful',
         success: true,
